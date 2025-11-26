@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eric Guzman's Portfolio</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --border: #30363d
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7
+        }
+
+        header {
+            background: #161b22;
+            padding: 3rem 2rem;
+            text-align: center
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: white
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: .1rem
+        }
+
+        .section {
+            margin: 4.5rem 0
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr))
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid var(--border)
+        }
+
+        details {
+            margin-top: 2rem;
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 1.2rem;
+            font-weight: bold;
+            background: #21262d;
+            font-size: 1.1rem
+        }
+
+        summary:hover {
+            background: #2d3340
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 0.5rem 0.8rem 0 0;
+            padding: 0.75rem 1.5rem;
+            background: #30363d;
+            border-radius: 8px;
+            font-size: 0.98rem
+        }
+
+        .btn:hover {
+            background: #58a6ff;
+            color: black
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            color: #8b949e
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Eric Guzman</h1>
+        <p>Cybersecurity B.S. ’25 • Marist University • Red Team • Malware • Containers • Networking</p>
+        <p>Garden City, NY </p>
+       <p> (516) 497-0204</p>
+
+            
+            <a href="mailto:e.ricgzmn7@gmail.com">e.ricgzmn7@gmail.com</a> •
+            <a href="www.linkedin.com/in/eric-guzman-7">LinkedIn</a> •
+            <a href="https://github.com/ericguz1">GitHub</a>
+        </p>
+    </header>
+
+    <main>
+        <!-- ABOUT -->
+        <div class="section">
+            <h2>About</h2>
+            <p>
+                I am a May 2025 Cybersecurity B.S. graduate from Marist University with a deep, hands on passion for
+                security. Over the past four years, I have spent countless hours building and testing my own labs like
+                writing and safely reversing custom ransomware payloads with Bash Bunny, experimenting with container
+                escapes, deploying a network wide PiHole setup that blocks a significant amount of ads and
+                trackers, and designing multi site Cisco networks with proper segmentation and routing.
+
+                I am excited to bring this practical experience into my first full time role in penetration testing, SOC
+                analysis, application security, or security engineering. I learn quickly, document thoroughly, and
+                genuinely enjoy both breaking and defending systems. If you are looking for someone eager to contribute
+                and keep growing, I would love to chat.</p>
+        </div>
+
+        <!-- SKILLS SECTION -->
+        <div class="section">
+            <h2>Featured Skills</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+                <div class="card" style="padding:1.4rem; text-align:center; font-size:1rem;">
+                    <strong>Physical / Red Team Devices</strong><br>
+                    Bash Bunny • Flipper Zero<br>
+                    Custom Payloads • Defender Evasion • Persistence
+                </div>
+                <div class="card" style="padding:1.4rem; text-align:center; font-size:1rem;">
+                    <strong>Container & Cloud Security</strong><br>
+                    Docker • Kubernetes (Minikube/kubectl)<br>
+                    seccomp • AppArmor • Breakouts
+                </div>
+                <div class="card" style="padding:1.4rem; text-align:center; font-size:1rem;">
+                    <strong>Pentest & Exploitation Core</strong><br>
+                    Nessus • Metasploit • Nmap+NSE<br>
+                    Burp Suite • sqlmap • John The Ripper • Hashcat
+                </div>
+                <div class="card" style="padding:1.4rem; text-align:center; font-size:1rem;">
+                    <strong>Network Defense & Forensics</strong><br>
+                    PiHole • Suricata • Splunk<br>
+                    Volatility • Autopsy • Wireshark
+                </div>
+            </div>
+
+            <details>
+                <summary>Show Full Skills List</summary>
+                <div class="card" style="padding:2rem; font-size:1rem; line-height:2;">
+                    <strong>Tools</strong><br>
+                    Nessus, Metasploit, Nmap, Wireshark, Bash Bunny (Hak5), Flipper Zero, Burp Suite, John the Ripper,
+                    Hashcat, Aircrack-ng, sqlmap, OpenVAS, Nikto, Volatility, Autopsy, FTK Imager, Splunk, Palo Alto
+                    Firewall, Faucet SDN Controller, Ventoy, BalenaEtcher<br><br>
+
+                    <strong>Languages</strong><br>
+                    Python (automation, log parsing, exploit dev), PowerShell, Bash/Batch, Java, JavaScript<br><br>
+
+                    <strong>Platforms & Environments</strong><br>
+                    Kali Linux, Ubuntu Server/Desktop, Windows 10/11/Server, VMware Workstation Pro 17, Docker,
+                    Kubernetes (Minikube/kubectl), PiHole, DVWA, Metasploitable 2, TryHackMe, HackTheBox<br><br>
+
+                    <strong>Offensive Security</strong><br>
+                    Bash Bunny payloads, PowerShell Empire, custom ransomware, persistence mechanisms, Windows Defender
+                    evasion, credential dumping, kerberoasting, DCSync, Golden/Silver Tickets, BloodHound, Flipper
+                    Zero<br><br>
+
+                    <strong>Vulnerability Assessment & Exploits</strong><br>
+                    Nessus (authenticated), Metasploit, Nmap + NSE, Burp Suite, sqlmap, John the Ripper, Hashcat<br><br>
+
+                    <strong>Container & Cloud Security</strong><br>
+                    Docker, Kubernetes, seccomp profiles, AppArmor, container breakout techniques, Podman<br><br>
+
+                    <strong>Networking & Infrastructure</strong><br>
+                    Cisco Packet Tracer, Cisco IOS routing & ACLs, static/dynamic routing, NAT, DMZ design, port
+                    security, DNS sinkholing, Netplan, Ubuntu Server administration, Palo Alto Firewall<br><br>
+
+                    <strong>Blue Team / Defense</strong><br>
+                    PiHole + Unbound recursive resolver, Windows Event Log analysis, Suricata rules, OSSEC,
+                    crowd sourced blocklists, Prometheus/Grafana monitoring, Splunk<br><br>
+
+                    <strong>Digital Forensics & Misc</strong><br>
+                    Volatility, Autopsy, FTK Imager, Wireshark deep analysis, AI Agents (automation prototypes)
+                </div>
+            </details>
+        </div>
+
+        <!-- FEATURED PROJECTS  -->
+        <div class="section">
+            <h2>Projects & Write-ups</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Windows Ransomware Simulation Capstone</h3>
+                    <p><strong>Bash Bunny • PowerShell • VMware</strong></p>
+                    <p>Fully reversible ransomware with encryption, Defender bypass, persistence, ransom note, and
+                        decryption routine.</p>
+                    <a href="RansomwareSimulation Capstone-Project.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+
+                <div class="card">
+                    <h3>Advanced Red/Blue Team Homelab</h3>
+                    <p><strong>VMware • Kali • Nessus • Metasploitable 2</strong></p>
+                    <p>Isolated multi-VM lab running authenticated Nessus scans and full kill chain attacks.</p>
+                    <a href="HomelabAttackAndDefense-Project.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+
+                <div class="card">
+                    <h3>Kubernetes Cluster Implementation & Security</h3>
+                    <p><strong>Minikube • kubectl • seccomp • AppArmor</strong></p>
+                    <p>Local Kubernetes cluster deployment with hardened container runtime profiles and breakout
+                        demonstrations.</p>
+                    <a href="KubernetesClusterImplementation-Project.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+
+                <div class="card">
+                    <h3>Docker Container Deployment & Hardening</h3>
+                    <p><strong>Docker • Podman • seccomp</strong></p>
+                    <p>Containerized web apps + MySQL with custom security profiles and breakout techniques.</p>
+                    <a href="DockerDeployment-Lab.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+
+                <div class="card">
+                    <h3>Network Wide PiHole + Unbound DNS Server</h3>
+                    <p><strong>Ubuntu 24.04 • PiHole • Netplan • Router level DNS</strong></p>
+                    <p>24/7 ad/tracker/malware blocking server with recursive resolver and live dashboard.</p>
+                    <a href="PiHoleProject.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+
+                <div class="card">
+                    <h3>Enterprise Network Security Challenge</h3>
+                    <p><strong>Cisco Packet Tracer • 20+ devices • ACLs • NAT • DMZ</strong></p>
+                    <p>Multi-site corporate network with static routing, ACLs, NAT, port security, and DMZ design.</p>
+                    <a href="InternetSecurityChallenge-Lab.pdf" target="_blank" class="btn">View Write-Up</a>
+                </div>
+            </div>
+
+            <!-- ALL OTHER PROJECTS & LABS  -->
+            <details>
+                <summary>Show All Other Projects & Labs </summary>
+                <div class="grid" style="margin-top:1rem">
+                    <div class="card">
+                        <h3>ACL Configuration Lab</h3>
+                        <p>Standard and extended ACL implementation on Cisco routers.</p>
+                        <a href="ACLConfig-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>ACLs and Zone Based Policy Firewall</h3>
+                        <p>Cisco ZPF configuration and testing.</p>
+                        <a href="ACLsAndZPF-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Active Discovery & Malware Analysis</h3>
+                        <p>Network discovery tools and behavioral malware analysis.</p>
+                        <a href="ActiveDiscoveryAndMalwareAnalysis-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Applying Encryption and Hashing Algorithms</h3>
+                        <p>Practical implementation of symmetric/asymmetric encryption and hashing.</p>
+                        <a href="ApplyingEncryptionAndHashingAlgorithms-Lab.pdf" target="_blank" class="btn">View
+                            PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Corporate OSINT Research Report</h3>
+                        <p>Open source intelligence gathering on a target organization.</p>
+                        <a href="CorporateOSINT-ResearchReport.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Exploiting a Vulnerable Workstation</h3>
+                        <p>Full exploitation chain against a Windows target.</p>
+                        <a href="ExploitingAVulnerableWorkstation-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Faucet SDN Controller Configuration</h3>
+                        <p>Software defined networking with Ryu/Faucet controller.</p>
+                        <a href="FaucetSDNControllerConfig-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Incident Response Report Example</h3>
+                        <p>Full IR report from detection to recovery.</p>
+                        <a href="IncidentResponseReportExample.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Internetworking Challenge Lab</h3>
+                        <p>Complex multi router topology with routing protocols.</p>
+                        <a href="Internetworking Challenge-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Inter-VLAN Routing (Router-on-a-Stick)</h3>
+                        <p>VLAN configuration and inter VLAN routing.</p>
+                        <a href="InterVLANRoutingRouterOnAStick-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Network Device Security and Services</h3>
+                        <p>Hardening Cisco devices and enabling secure services.</p>
+                        <a href="NetworkDeviceSecurityAndServicesLab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Network Discovery Tools & Techniques Research</h3>
+                        <p>Academic paper on active/passive discovery methods.</p>
+                        <a href="NetworkDiscovery Tools+ Techniques-ResearchPaper.pdf" target="_blank" class="btn">View
+                            PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Network Traffic Analysis Lab</h3>
+                        <p>Wireshark deep dive into real traffic captures.</p>
+                        <a href="Network TrafficAndAnalysis-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>OSINT and Reconnaissance Lab</h3>
+                        <p>Full reconnaissance phase against a target.</p>
+                        <a href="OSINTandRconnaissance-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>OSPF Dynamic Routing Migration</h3>
+                        <p>Migrating from static to OSPF in a production like environment.</p>
+                        <a href="OSPFDynamicRoutingMigration-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Protocol Traffic Analysis</h3>
+                        <p>Detailed analysis of common protocols (HTTP, DNS, SMB, etc.).</p>
+                        <a href="Protocol TrafficAnalysis-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Site-to-Site VPN Configuration</h3>
+                        <p>IPsec VPN between two Cisco routers.</p>
+                        <a href="SiteToSiteVPNConfig-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Static Routing Lab</h3>
+                        <p>Multi area static routing with redundancy.</p>
+                        <a href="StaticRouting-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Virtual Domain Controller Lab</h3>
+                        <p>Building and attacking a Windows Active Directory environment.</p>
+                        <a href="VirtualDomainController-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>VLANs and Port Security</h3>
+                        <p>VLAN design and switch port security features.</p>
+                        <a href="VLANsAndPorts-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>WAN Vulnerability Assessment & Hardening</h3>
+                        <p>Scanning and securing a simulated WAN environment.</p>
+                        <a href="WANVulnerabilityAssesmentAndHardening-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                    <div class="card">
+                        <h3>Website Footprinting Lab</h3>
+                        <p>Passive and active information gathering on web targets.</p>
+                        <a href="WebsiteFootprinting-Lab.pdf" target="_blank" class="btn">View PDF</a>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Eric Guzman - GitHub Pages</p>
+    </footer>
+</body>
+
+</html>
