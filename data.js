@@ -7,7 +7,7 @@ const HERO = {
   location:   'Garden City, NY',
   university: 'Marist University',
   degree:     "Cybersecurity B.S. '25",
-  bio:        'CompTIA Security+ certified cybersecurity graduate (Marist University, B.S. 2025) with hands-on experience building and operating a full SOC detection stack — Splunk, Wazuh, and Suricata — on real hardware against live attack traffic. I have documented ransomware simulations, Active Directory attack chains, container escapes, and network-wide DNS filtering from the ground up. I am looking for a Tier 1 SOC analyst or security engineering role where I can bring that lab experience into production.',
+  bio:        'CompTIA Security+ certified cybersecurity graduate (Marist University, B.S. 2025) with hands-on experience building and operating a full SOC detection stack, Splunk, Wazuh, and Suricata, on real hardware against live attack traffic. I have documented ransomware simulations, Active Directory attack chains, container escapes, and network-wide DNS filtering from the ground up. I am looking for a Tier 1 SOC analyst or security engineering role where I can bring that lab experience into production.',
   links: [
     { label: 'e.ricgzmn7@gmail.com', href: 'mailto:e.ricgzmn7@gmail.com' },
     { label: 'GitHub',               href: 'https://github.com/ericguz1' },
