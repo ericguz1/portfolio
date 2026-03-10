@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eric Guzman // Security Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <script src="data.js"></script>
+  <style>
+    :root {
+      --bg: #0a0c0e;
+      --bg2: #0e1114;
+      --bg3: #111518;
+      --bg4: #161b20;
+      --border: #1e2830;
+      --border2: #28353f;
+      --green: #39e07a;
+      --green2: #1f7a45;
+      --green3: #0d3520;
+      --cyan: #3ecfbf;
+      --amber: #d4941a;
+      --red: #c43838;
+      --red2: #8a1c1c;
+      --purple: #8b6be8;
+      --blue: #4a9eff;
+      --text: #9eb8c4;
+      --text2: #6a8898;
+      --text3: #3d5464;
+      --bright: #d4eaf5;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--green2);
+      border-radius: 2px;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      transition: color 0.1s;
+    }
+
+    a:hover {
+      color: var(--green);
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 14, 0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4rem;
+      height: 44px;
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .topbar-brand .bracket {
+      color: var(--red);
+      font-size: 16px;
+    }
+
+    .topbar-brand .name {
+      color: var(--bright);
+    }
+
+    .topbar-brand .dot {
+      color: var(--text3);
+    }
+
+    .topbar-brand .ext {
+      color: var(--green);
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .topbar-nav a {
+      color: var(--text2);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: all 0.1s;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--bright);
+      border-color: var(--border2);
+    }
+
+    .topbar-nav a.active {
+      color: #8fffc2;
+      border-color: var(--green2);
+      background: var(--green3);
+    }
+
+    .topbar-sep {
+      color: var(--border2);
+      margin: 0 0.5rem;
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.4
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 4rem 4.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-left {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--bright);
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    /* glitch removed */
+
+    .hero-role {
+      font-size: 1rem;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-role::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    .hero-location {
+      font-size: 11.5px;
+      color: var(--text3);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-bio {
+      font-size: 13.5px;
+      color: var(--text2);
+      line-height: 1.9;
+      max-width: 80ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-bio span {
+      color: var(--text);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hero-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 11px;
+      color: var(--text2);
+      border: 1px solid var(--border2);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.12s;
+    }
+
+    .hero-link:hover {
+      color: var(--green);
+      border-color: var(--green2);
+      background: var(--green3);
+    }
+
+    /* ── SECTION HEADERS ── */
+    .sect-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .sect-head-icon {
+      color: var(--amber);
+      font-size: 14px;
+    }
+
+    .sect-head-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+    }
+
+    .sect-head-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .sect {
+      padding: 3.5rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sect-outer {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sect-outer .sect {
+      border-bottom: none;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 1px;
+    }
+
+    .skill-cell {
+      background: var(--bg2);
+      padding: 1.25rem 1.5rem;
+      transition: background 0.1s;
+    }
+
+    .skill-cell:hover {
+      background: var(--bg3);
+    }
+
+    .skill-cell-name {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-cell-body {
+      font-size: 11.5px;
+      color: var(--text2);
+      line-height: 1.85;
+    }
+
+    .skill-cell-body b {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    details.expand {
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    details.expand summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.7rem 1.25rem;
+      background: var(--bg2);
+      font-size: 11px;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      user-select: none;
+      transition: background 0.1s;
+    }
+
+    details.expand summary:hover {
+      background: var(--bg3);
+    }
+
+    details.expand summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.expand summary::before {
+      content: '▶';
+      font-size: 8px;
+      color: var(--green2);
+      transition: transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    details.expand[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .skill-full {
+      padding: 1.5rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem 2rem;
+    }
+
+    .sfg strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      margin-bottom: 0.4rem;
+    }
+
+    .sfg p {
+      font-size: 11.5px;
+      color: var(--text2);
+      line-height: 1.85;
+    }
+
+    /* ── FILESYSTEM BROWSER ── */
+    .fs-shell {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+
+    .fs-titlebar {
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+
+    .fs-titlebar-path {
+      color: var(--green);
+    }
+
+    .fs-titlebar-wm {
+      display: flex;
+      gap: 5px;
+    }
+
+    .fs-wm-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .fs-wm-dot.r {
+      background: #c43838;
+    }
+
+    .fs-wm-dot.a {
+      background: #d4941a;
+    }
+
+    .fs-wm-dot.g {
+      background: #39e07a;
+    }
+
+    .fs-body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 440px;
+    }
+
+    /* Tree panel */
+    .fs-tree {
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+      overflow-y: auto;
+    }
+
+    .fs-tree-header {
+      padding: 0.6rem 1rem;
+      font-size: 10px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 11.5px;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.1s;
+      border-left: 2px solid transparent;
+      user-select: none;
+    }
+
+    .tree-item:hover {
+      background: var(--bg2);
+      color: var(--text);
+    }
+
+    .tree-item.active {
+      background: var(--green3);
+      color: var(--green);
+      border-left-color: var(--green);
+    }
+
+    .tree-item .tree-icon {
+      color: var(--amber);
+      font-size: 10px;
+      width: 12px;
+    }
+
+    .tree-item.child {
+      padding-left: 2rem;
+    }
+
+    .tree-item.grandchild {
+      padding-left: 3rem;
+    }
+
+    /* Content panel */
+    .fs-content {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg2);
+      overflow: hidden;
+    }
+
+    .fs-content-bar {
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      font-size: 11px;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .fs-content-bar-right {
+      font-size: 10px;
+      color: var(--text3);
+    }
+
+    .fs-table-wrap {
+      overflow: auto;
+      flex: 1;
+    }
+
+    .fs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .fs-table thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fs-table thead th {
+      padding: 0.5rem 1rem;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text3);
+    }
+
+    .fs-table tbody tr {
+      border-bottom: 1px solid rgba(30, 40, 48, 0.5);
+      transition: background 0.1s;
+      cursor: pointer;
+    }
+
+    .fs-table tbody tr:hover {
+      background: rgba(57, 224, 122, 0.04);
+    }
+
+    .fs-table tbody tr.selected {
+      background: rgba(57, 224, 122, 0.07);
+    }
+
+    .fs-table td {
+      padding: 0.55rem 1rem;
+      vertical-align: middle;
+    }
+
+    .td-perms {
+      color: var(--text3);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .td-user {
+      color: var(--text2);
+    }
+
+    .td-grp {
+      color: var(--text3);
+    }
+
+    .td-stars {
+      color: var(--amber);
+    }
+
+    .td-forks {
+      color: var(--cyan);
+    }
+
+    .td-dls {
+      color: var(--text2);
+    }
+
+    .td-tech {}
+
+    .td-name {
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .td-name a {
+      color: inherit;
+    }
+
+    .td-name a:hover {
+      color: var(--bright);
+    }
+
+    .tech-badge {
+      display: inline-block;
+      font-size: 9.5px;
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      margin-right: 3px;
+      border: 1px solid;
+    }
+
+    .tb-green {
+      color: var(--green);
+      border-color: var(--green2);
+      background: var(--green3);
+    }
+
+    .tb-cyan {
+      color: var(--cyan);
+      border-color: #1a5c55;
+      background: #0a2c28;
+    }
+
+    .tb-amber {
+      color: var(--amber);
+      border-color: #5c3e0a;
+      background: #2a1c05;
+    }
+
+    .tb-purple {
+      color: var(--purple);
+      border-color: #3d2e7a;
+      background: #1a1038;
+    }
+
+    .tb-red {
+      color: #e07070;
+      border-color: var(--red2);
+      background: #200a0a;
+    }
+
+    .tb-blue {
+      color: var(--blue);
+      border-color: #1a3e7a;
+      background: #071828;
+    }
+
+    /* Detail pane */
+    .fs-detail {
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      padding: 1.25rem 1.5rem;
+      min-height: 130px;
+      display: none;
+    }
+
+    .fs-detail.visible {
+      display: block;
+    }
+
+    .fs-detail-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bright);
+      margin-bottom: 0.3rem;
+    }
+
+    .fs-detail-meta {
+      font-size: 11px;
+      color: var(--cyan);
+      margin-bottom: 0.6rem;
+    }
+
+    .fs-detail-desc {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.8;
+      max-width: 70ch;
+      margin-bottom: 0.75rem;
+    }
+
+    .fs-detail-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .fs-detail-btn {
+      font-size: 10.5px;
+      padding: 0.3rem 0.85rem;
+      border-radius: 2px;
+      border: 1px solid;
+      transition: all 0.1s;
+    }
+
+    .fs-detail-btn.primary {
+      color: var(--green);
+      border-color: var(--green2);
+    }
+
+    .fs-detail-btn.primary:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    .fs-detail-btn.secondary {
+      color: var(--text2);
+      border-color: var(--border2);
+    }
+
+    .fs-detail-btn.secondary:hover {
+      color: var(--bright);
+      border-color: var(--text2);
+    }
+
+    .fs-statusbar {
+      padding: 0.4rem 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 10.5px;
+      color: var(--text3);
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .fs-statusbar-left {
+      color: var(--text2);
+    }
+
+    .fs-statusbar-legend {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .fs-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text3);
+    }
+
+    .fs-legend-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CERTS ── */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .cert-item {
+      background: var(--bg2);
+      padding: 1.4rem 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      transition: background 0.1s;
+    }
+
+    .cert-item:hover {
+      background: var(--bg3);
+    }
+
+    .cert-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--bright);
+      margin-bottom: 0.4rem;
+    }
+
+    .cert-desc {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+
+    .cert-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .cert-btn {
+      font-size: 10.5px;
+      color: var(--green);
+      border: 1px solid var(--green2);
+      padding: 0.3rem 0.85rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all 0.1s;
+      text-align: center;
+    }
+
+    .cert-btn:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text3);
+    }
+
+    footer .fp .u {
+      color: var(--green);
+    }
+
+    footer .fp .p {
+      color: var(--amber);
+    }
+
+    footer a {
+      color: var(--text2);
+    }
+
+    footer a:hover {
+      color: var(--green);
+    }
+
+    /* ── FADE IN ── */
+    .fade {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .fade.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        padding: 3rem 2rem;
+      }
+
+      .sect {
+        padding: 2.5rem 2rem;
+      }
+
+      .fs-body {
+        grid-template-columns: 160px 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 2.5rem 1.25rem;
+      }
+
+      .sect {
+        padding: 2rem 1.25rem;
+      }
+
+      .topbar {
+        padding: 0 1.25rem;
+      }
+
+      .fs-body {
+        grid-template-columns: 1fr;
+      }
+
+      .fs-tree {
+        display: none;
+      }
+
+      .cert-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-brand">
+      <span class="name" id="topbar-name"></span><span class="dot"> /</span><span class="ext"> Security Portfolio</span>
+    </div>
+    <nav class="topbar-nav">
+      <a href="#identity">Identity</a>
+      <a href="#certs">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <span class="topbar-sep">|</span>
+      <a href="simple.html" style="color:var(--text3);font-size:10px;letter-spacing:0.08em;">Simple View</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="identity">
+    <div class="hero-left">
+      <div class="hero-name"><span id="typed-name"></span><span
+          style="display:inline-block;width:2px;height:0.85em;background:var(--green);vertical-align:middle;margin-left:3px;animation:pulse 1s step-end infinite;"></span>
+      </div>
+      <div class="hero-role" id="hero-role"></div>
+      <div class="hero-location" id="hero-location"></div>
+      <p class="hero-bio" id="hero-bio"></p>
+      <div class="hero-links" id="hero-links-wrap"></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="sect fade" id="certs">
+    <div class="sect-head">
+      <span class="sect-head-icon" style="color:var(--amber);">◈</span>
+      <span class="sect-head-label">Certifications</span>
+      <div class="sect-head-rule"></div>
+    </div>
+
+    <div id="cert-list-container"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sect fade" id="skills">
+    <div class="sect-head">
+      <span class="sect-head-icon">⚡</span>
+      <span class="sect-head-label">Skills</span>
+      <div class="sect-head-rule"></div>
+    </div>
+
+    <div id="skills-grid-container"></div>
+
+    <details class="expand" style="margin-top:1px;">
+      <summary>Show full skills inventory</summary>
+      <div class="skill-full" id="skills-full-container"></div>
+    </details>
+  </section>
+
+  <!-- PROJECTS / FILESYSTEM -->
+  <section class="sect fade" id="projects">
+    <div class="sect-head">
+      <span class="sect-head-icon" style="color:var(--green);">◈</span>
+      <span class="sect-head-label">Projects</span>
+      <div class="sect-head-rule"></div>
+    </div>
+
+    <div class="fs-shell">
+      <div class="fs-titlebar">
+        <div style="display:flex;align-items:center;gap:0;font-size:11px;">
+          <span style="color:var(--green);font-weight:700;">ericguz@sec-lab</span><span style="color:var(--text3);">:</span><span style="color:var(--blue);">~/projects/<span id="fs-breadcrumb">featured</span></span><span style="color:var(--text3);">&nbsp;$&nbsp;</span><span style="color:var(--text2);">ls -la</span>
+        </div>
+        <span style="font-size:10px;color:var(--text3);" id="fs-item-count">8 items</span>
+      </div>
+      <div class="fs-body">
+        <!-- Tree -->
+        <div class="fs-tree">
+          <div class="fs-tree-header">~/projects</div>
+          <div class="tree-item active" data-cat="featured" onclick="switchCat(this,'featured')">
+            <span class="tree-icon">▼</span> featured
+          </div>
+          <div class="tree-item child" data-cat="offensive" onclick="switchCat(this,'offensive')">
+            <span class="tree-icon">▶</span> offensive
+          </div>
+          <div class="tree-item child" data-cat="homelab" onclick="switchCat(this,'homelab')">
+            <span class="tree-icon">▶</span> homelab
+          </div>
+          <div class="tree-item child" data-cat="infra" onclick="switchCat(this,'infra')">
+            <span class="tree-icon">▶</span> infrastructure
+          </div>
+          <div class="tree-item" data-cat="labs" onclick="switchCat(this,'labs')">
+            <span class="tree-icon">▶</span> all-labs
+          </div>
+        </div>
+
+        <!-- Content pane -->
+        <div class="fs-content">
+          <div class="fs-content-bar">
+            <span style="color:var(--text2);font-size:11px;">Name</span>
+            <span class="fs-content-bar-right">click a row to preview</span>
+          </div>
+          <div class="fs-table-wrap">
+            <table class="fs-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Tags</th>
+                </tr>
+              </thead>
+              <tbody id="fs-tbody">
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+          <div class="fs-detail" id="fs-detail">
+            <div class="fs-detail-title" id="detail-title"></div>
+            <div class="fs-detail-meta" id="detail-meta"></div>
+            <div class="fs-detail-desc" id="detail-desc"></div>
+            <div class="fs-detail-actions" id="detail-actions"></div>
+          </div>
+          <div class="fs-statusbar">
+            <span class="fs-statusbar-left" id="fs-status-left">8 items</span>
+            <div class="fs-statusbar-legend">
+              <span class="fs-legend-item"><span class="fs-legend-dot"
+                  style="background:var(--cyan)"></span>Container</span>
+              <span class="fs-legend-item"><span class="fs-legend-dot"
+                  style="background:var(--amber)"></span>Network</span>
+              <span class="fs-legend-item"><span class="fs-legend-dot"
+                  style="background:var(--green)"></span>Offensive</span>
+              <span class="fs-legend-item"><span class="fs-legend-dot"
+                  style="background:var(--purple)"></span>Defense</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div id="footer-name"></div>
+    <div id="footer-links" style="display:flex;gap:1.5rem;"></div>
+  </footer>
+
+  <script>
+    // ── TYPEWRITER ──
+    (function () {
+      const el = document.getElementById('typed-name');
+      const text = HERO.name;
+      let i = 0;
+      function type() {
+        if (i < text.length) { el.textContent += text[i++]; setTimeout(type, 60 + Math.random() * 40); }
+      }
+      setTimeout(type, 400);
+    })();
+
+    // ── SCROLL FADE ──
+    const faders = document.querySelectorAll('.fade');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.05 });
+    faders.forEach(f => io.observe(f));
+
+    // ── RENDER CERTS FROM data.js ──
+    (function () {
+      const container = document.getElementById('cert-list-container');
+      container.className = 'cert-list';
+      container.innerHTML = CERTS.map(c => {
+        const actions = c.pending
+          ? `<span class="cert-btn" style="opacity:0.45;cursor:default;border-style:dashed;">Pending</span>`
+          : c.actions.map(a => `<a href="${a.href}" target="_blank" class="cert-btn">${a.label}</a>`).join('');
+        return `
+      <div class="cert-item">
+        <div>
+          <div class="cert-badge">${c.badge}</div>
+          <div class="cert-title">${c.title}</div>
+          <div class="cert-desc">${c.desc}</div>
+        </div>
+        <div class="cert-actions">${actions}</div>
+      </div>`;
+      }).join('');
+    })();
+
+    // ── RENDER SKILLS FROM data.js ──
+    (function () {
+      const grid = document.getElementById('skills-grid-container');
+      grid.className = 'skills-grid';
+      grid.innerHTML = SKILLS_GRID.map(s => `
+    <div class="skill-cell">
+      <div class="skill-cell-name">${s.name}</div>
+      <div class="skill-cell-body">${s.body}</div>
+    </div>`).join('');
+
+      document.getElementById('skills-full-container').innerHTML =
+        SKILLS_FULL.map(s => `<div class="sfg"><strong>${s.heading}</strong><p>${s.text}</p></div>`).join('');
+    })();
+
+    const TB_COLORS = { green: 'tb-green', cyan: 'tb-cyan', amber: 'tb-amber', purple: 'tb-purple', red: 'tb-red', blue: 'tb-blue' };
+
+    let selectedRow = null;
+
+    function renderTable(cat) {
+      const rows = PROJECTS[cat];
+      const tbody = document.getElementById('fs-tbody');
+      tbody.innerHTML = '';
+      rows.forEach((p) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+      <td class="td-name">${p.title}</td>
+      <td class="td-grp" style="white-space:nowrap;color:var(--text2);">${p.grp}</td>
+      <td class="td-tech">${p.tech.map(([c, l]) => `<span class="tech-badge ${TB_COLORS[c] || 'tb-green'}">${l}</span>`).join('')}</td>
+    `;
+        tr.addEventListener('click', () => selectRow(tr, p));
+        tbody.appendChild(tr);
+      });
+      hideDetail();
+    }
+
+    function selectRow(tr, p) {
+      document.querySelectorAll('.fs-table tbody tr').forEach(r => r.classList.remove('selected'));
+      tr.classList.add('selected');
+      selectedRow = tr;
+      showDetail(p);
+    }
+
+    function showDetail(p) {
+      const d = document.getElementById('fs-detail');
+      document.getElementById('detail-title').textContent = p.title;
+      document.getElementById('detail-meta').textContent = p.stack;
+      document.getElementById('detail-desc').textContent = p.desc;
+      const acts = document.getElementById('detail-actions');
+      acts.innerHTML = `<a href="${p.pdf}" target="_blank" class="fs-detail-btn primary">View Write-Up →</a><a class="fs-detail-btn secondary" onclick="hideDetail()">✕ Close</a>`;
+      d.classList.add('visible');
+    }
+
+    function hideDetail() {
+      document.getElementById('fs-detail').classList.remove('visible');
+      if (selectedRow) { selectedRow.classList.remove('selected'); selectedRow = null; }
+    }
+
+    const CAT_LABELS = { featured: 'featured', offensive: 'offensive', homelab: 'homelab', infra: 'infrastructure', labs: 'all-labs' };
+
+    function switchCat(el, cat) {
+      document.querySelectorAll('.tree-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      const label = CAT_LABELS[cat] || cat;
+      document.getElementById('fs-breadcrumb').textContent = label;
+      const count = PROJECTS[cat].length + ' item' + (PROJECTS[cat].length !== 1 ? 's' : '');
+      document.getElementById('fs-item-count').textContent = count;
+      document.getElementById('fs-status-left').textContent = count;
+      renderTable(cat);
+    }
+
+    // Init
+    renderTable('featured');
+
+    // ── NAV ACTIVE HIGHLIGHT ──
+    (function () {
+      const navLinks = document.querySelectorAll('.topbar-nav a');
+      const sectionIds = ['identity', 'certs', 'skills', 'projects'];
+
+      function setActive(id) {
+        navLinks.forEach(a => {
+          const href = a.getAttribute('href').replace('#', '');
+          a.classList.toggle('active', href === id);
+        });
+      }
+
+      // Click: set active immediately
+      navLinks.forEach(a => {
+        a.addEventListener('click', function () {
+          const id = this.getAttribute('href').replace('#', '');
+          setActive(id);
+        });
+      });
+
+      // Scroll: use IntersectionObserver to track which section is most visible
+      const sectionEls = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+      let activeId = 'identity';
+
+      const navObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            activeId = e.target.id;
+            setActive(activeId);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-40px 0px -55% 0px' });
+
+      sectionEls.forEach(s => navObserver.observe(s));
+
+      // Set initial active based on scroll position
+      setActive('identity');
+    })();
+
+    // ── RENDER HERO FROM data.js ──
+    document.getElementById('topbar-name').textContent = HERO.name;
+    document.getElementById('hero-role').textContent = HERO.role;
+    document.getElementById('hero-location').innerHTML =
+      HERO.location + ' &bull; ' + HERO.university + ' &bull; ' + HERO.degree;
+    document.getElementById('hero-bio').textContent = HERO.bio;
+    document.getElementById('hero-links-wrap').innerHTML = HERO.links.map(l =>
+      `<a href="${l.href}" class="hero-link"${l.href.startsWith('http') ? ' target="_blank"' : ''}>${l.label}</a>`
+    ).join('');
+
+    // ── RENDER FOOTER FROM data.js ──
+    document.getElementById('footer-name').textContent = HERO.name + ' - ' + new Date().getFullYear();
+    document.getElementById('footer-links').innerHTML = HERO.links
+      .filter(l => l.label === 'GitHub' || l.label === 'LinkedIn')
+      .map(l => `<a href="${l.href}" target="_blank">${l.label}</a>`)
+      .join('');
+
+    // ── DOCUMENT TITLE ──
+    document.title = HERO.name + ' // Security Portfolio';
+  </script>
+
+</body>
+
+
+</html>
