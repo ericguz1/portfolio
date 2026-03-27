@@ -270,12 +270,8 @@
   </section>
 
   <footer class="footer">
-    <span>2026</span>
-    <span>
-      <a href="https://github.com/ericguz1" target="_blank">GitHub</a>
-      &nbsp;&middot;&nbsp;
-      <a href="http://www.linkedin.com/in/eric-guzman-99722a351" target="_blank">LinkedIn</a>
-    </span>
+    <span id="footer-year"></span>
+    <span id="footer-links"></span>
   </footer>
 
 <script>
@@ -345,6 +341,16 @@ function projRow(p) {
 
 document.getElementById('projects-featured').innerHTML = PROJECTS.featured.map(projRow).join('');
 document.getElementById('projects-labs').innerHTML     = PROJECTS.labs.map(projRow).join('');
+
+// ── FOOTER ──
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+document.getElementById('footer-links').innerHTML = HERO.links
+  .filter(l => l.label === 'GitHub' || l.label === 'LinkedIn')
+  .map(l => `<a href="${l.href}" target="_blank">${l.label}</a>`)
+  .join(' &nbsp;&middot;&nbsp; ');
+
+// ── DOCUMENT TITLE ──
+document.title = HERO.name + ' \u2014 Security Portfolio';
 </script>
 
 </body>
