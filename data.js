@@ -38,10 +38,12 @@ const CERTS = [
     ]
   },
   {
-    badge:   'Microsoft · In Progress · Expected Mar 2026',
+    badge:   'Microsoft · Active · Issued Mar 2026',
     title:   'Microsoft Azure Fundamentals (AZ-900)',
     desc:    'Foundational certification covering core Azure cloud concepts, services, security, privacy, compliance, and pricing. Entry point for Microsoft cloud credentials.',
-    pending: true
+    actions: [
+      { label: 'Verify Badge', href: 'https://learn.microsoft.com/api/credentials/share/en-us/egz-0428/ADFD285BF0D8ACE0?sharingId=C33C1D6C47F373C0' },
+    ]
   },
   {
     badge:   'Splunk · In Progress · Expected Mar 2026',
