@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eric Guzman — Security Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eric Guzman // Security Portfolio</title>
   <script src="data.js"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     /* ── THEME VARIABLES ── */
-    :root, [data-theme="light"] {
-      --bg:          #ffffff;
-      --bg-hover:    #fafafa;
-      --text:        #1a1a1a;
-      --text-muted:  #555;
-      --text-dim:    #999;
+    :root,
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-hover: #fafafa;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --text-dim: #999;
       --text-dimmer: #bbb;
-      --border:      #e5e5e5;
-      --border-row:  #f2f2f2;
-      --link:        #0060c0;
+      --border: #e5e5e5;
+      --border-row: #f2f2f2;
+      --link: #0060c0;
       --heading-sub: #444;
-      --skill-head:  #333;
-      --toggle-bg:   #f0f0f0;
-      --toggle-fg:   #333;
+      --skill-head: #333;
+      --toggle-bg: #f0f0f0;
+      --toggle-fg: #333;
     }
 
     [data-theme="dark"] {
-      --bg:          #111214;
-      --bg-hover:    #1a1c1f;
-      --text:        #dde6ed;
-      --text-muted:  #8fa3ae;
-      --text-dim:    #5a7280;
+      --bg: #111214;
+      --bg-hover: #1a1c1f;
+      --text: #dde6ed;
+      --text-muted: #8fa3ae;
+      --text-dim: #5a7280;
       --text-dimmer: #3d5464;
-      --border:      #1e2830;
-      --border-row:  #161b20;
-      --link:        #5ba8f0;
+      --border: #1e2830;
+      --border-row: #161b20;
+      --link: #5ba8f0;
       --heading-sub: #9eb8c4;
-      --skill-head:  #c8dde8;
-      --toggle-bg:   #1e2830;
-      --toggle-fg:   #8fa3ae;
+      --skill-head: #c8dde8;
+      --toggle-bg: #1e2830;
+      --toggle-fg: #8fa3ae;
     }
 
     body {
@@ -53,8 +61,14 @@
       transition: background 0.15s, color 0.15s;
     }
 
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* ── TOP BAR ── */
     .topbar {
@@ -68,7 +82,10 @@
       font-size: 12px;
       color: var(--text-dim);
     }
-    .back-link a { color: var(--link); }
+
+    .back-link a {
+      color: var(--link);
+    }
 
     /* ── THEME TOGGLE ── */
     .theme-toggle {
@@ -83,12 +100,30 @@
       transition: background 0.15s, color 0.15s;
       user-select: none;
     }
-    .theme-toggle:hover { opacity: 0.8; }
+
+    .theme-toggle:hover {
+      opacity: 0.8;
+    }
 
     /* ── HEADER ── */
-    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
-    .role     { font-size: 1rem;      color: var(--heading-sub); margin-bottom: 0.2rem; }
-    .location { font-size: 0.8125rem; color: var(--text-dim);    margin-bottom: 1.25rem; }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+
+    .role {
+      font-size: 1rem;
+      color: var(--heading-sub);
+      margin-bottom: 0.2rem;
+    }
+
+    .location {
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
 
     .contact {
       display: flex;
@@ -109,7 +144,9 @@
     }
 
     /* ── SECTIONS ── */
-    section { margin-bottom: 2.75rem; }
+    section {
+      margin-bottom: 2.75rem;
+    }
 
     h2 {
       font-size: 0.6875rem;
@@ -123,8 +160,13 @@
     }
 
     /* ── CERTIFICATIONS ── */
-    .cert { margin-bottom: 1.5rem; }
-    .cert:last-child { margin-bottom: 0; }
+    .cert {
+      margin-bottom: 1.5rem;
+    }
+
+    .cert:last-child {
+      margin-bottom: 0;
+    }
 
     .cert-status {
       font-size: 11px;
@@ -141,19 +183,52 @@
       margin-bottom: 0.3rem;
     }
 
-    .cert-desc    { font-size: 13px; color: var(--text-muted); margin-bottom: 0.4rem; max-width: 68ch; }
-    .cert-actions { display: flex; gap: 1rem; font-size: 12.5px; }
-    .cert-pending { font-size: 12px; color: var(--text-dimmer); font-style: italic; }
+    .cert-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      max-width: 68ch;
+    }
+
+    .cert-actions {
+      display: flex;
+      gap: 1rem;
+      font-size: 12.5px;
+    }
+
+    .cert-pending {
+      font-size: 12px;
+      color: var(--text-dimmer);
+      font-style: italic;
+    }
 
     /* ── SKILLS ── */
-    .skill-group { margin-bottom: 1rem; }
-    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group {
+      margin-bottom: 1rem;
+    }
 
-    .skill-heading { font-size: 12px; font-weight: 600; color: var(--skill-head); margin-bottom: 0.2rem; }
-    .skill-text    { font-size: 13px; color: var(--text-muted); }
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-heading {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--skill-head);
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
     /* ── PROJECTS TABLE ── */
-    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
 
     th {
       text-align: left;
@@ -172,15 +247,37 @@
       border-bottom: 1px solid var(--border-row);
     }
 
-    tr:hover td { background: var(--bg-hover); }
+    tr:hover td {
+      background: var(--bg-hover);
+    }
 
-    .proj-title { font-weight: 500; color: var(--text);       margin-bottom: 0.2rem; }
-    .proj-stack { font-size: 12px;  color: var(--text-dim); }
-    .proj-desc  { font-size: 12px;  color: var(--text-muted); }
-    .pdf-link   { font-size: 12px;  color: var(--link); white-space: nowrap; }
+    .proj-title {
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .proj-stack {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .proj-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pdf-link {
+      font-size: 12px;
+      color: var(--link);
+      white-space: nowrap;
+    }
 
     /* ── ALL LABS (collapsible) ── */
-    details { margin-top: 1.5rem; }
+    details {
+      margin-top: 1.5rem;
+    }
+
     details summary {
       font-size: 12px;
       color: var(--text-dim);
@@ -192,9 +289,19 @@
       gap: 0.4rem;
       margin-bottom: 0.75rem;
     }
-    details summary::-webkit-details-marker { display: none; }
-    details summary::before       { content: '▶'; font-size: 8px; }
-    details[open] summary::before { content: '▼'; }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::before {
+      content: '▶';
+      font-size: 8px;
+    }
+
+    details[open] summary::before {
+      content: '▼';
+    }
 
     /* ── FOOTER ── */
     .footer {
@@ -209,19 +316,49 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    .footer a       { color: var(--text-dim); }
-    .footer a:hover { color: var(--text); text-decoration: underline; }
+
+    .footer a {
+      color: var(--text-dim);
+    }
+
+    .footer a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      body { padding: 1.5rem 1rem 4rem; }
-      table, thead, tbody, th, td, tr { display: block; }
-      thead { display: none; }
-      td { padding: 0.25rem 0; border: none; }
-      tr { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+      body {
+        padding: 1.5rem 1rem 4rem;
+      }
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      td {
+        padding: 0.25rem 0;
+        border: none;
+      }
+
+      tr {
+        margin-bottom: 1.25rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="topbar">
@@ -274,26 +411,26 @@
     <span id="footer-links"></span>
   </footer>
 
-<script>
-// ── THEME TOGGLE ──
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  const next = isDark ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  document.getElementById('theme-btn').textContent = next === 'dark' ? '☀ Light mode' : '☾ Dark mode';
-  localStorage.setItem('simple-theme', next);
-}
+  <script>
+    // ── THEME TOGGLE ──
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-btn').textContent = next === 'dark' ? '☀ Light mode' : '☾ Dark mode';
+      localStorage.setItem('simple-theme', next);
+    }
 
-// Restore saved preference (defaults to dark if nothing saved)
-(function(){
-  const saved = localStorage.getItem('simple-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-  document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀ Light mode' : '☾ Dark mode';
-})();
+    // Restore saved preference (defaults to dark if nothing saved)
+    (function () {
+      const saved = localStorage.getItem('simple-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀ Light mode' : '☾ Dark mode';
+    })();
 
-// ── HERO ──
-document.getElementById('hero-wrap').innerHTML = `
+    // ── HERO ──
+    document.getElementById('hero-wrap').innerHTML = `
   <h1>${HERO.name}</h1>
   <p class="role">${HERO.role}</p>
   <p class="location">${HERO.location} &bull; ${HERO.university} &bull; ${HERO.degree}</p>
@@ -303,32 +440,32 @@ document.getElementById('hero-wrap').innerHTML = `
   <p class="bio">${HERO.bio}</p>
 `;
 
-// ── CERTIFICATIONS ──
-document.getElementById('certs-wrap').innerHTML = CERTS.map(c => `
+    // ── CERTIFICATIONS ──
+    document.getElementById('certs-wrap').innerHTML = CERTS.map(c => `
   <div class="cert">
     <div class="cert-status">${c.badge}</div>
     <div class="cert-name">${c.title}</div>
     <p class="cert-desc">${c.desc}</p>
     ${c.pending
-      ? `<span class="cert-pending">In progress</span>`
-      : `<div class="cert-actions">
+        ? `<span class="cert-pending">In progress</span>`
+        : `<div class="cert-actions">
            ${c.actions.map(a => `<a href="${a.href}" target="_blank">${a.label} →</a>`).join('')}
          </div>`
-    }
+      }
   </div>
 `).join('');
 
-// ── SKILLS ──
-document.getElementById('skills-wrap').innerHTML = SKILLS_FULL.map(s => `
+    // ── SKILLS ──
+    document.getElementById('skills-wrap').innerHTML = SKILLS_FULL.map(s => `
   <div class="skill-group">
     <div class="skill-heading">${s.heading}</div>
     <div class="skill-text">${s.text}</div>
   </div>
 `).join('');
 
-// ── PROJECTS ──
-function projRow(p) {
-  return `
+    // ── PROJECTS ──
+    function projRow(p) {
+      return `
     <tr>
       <td>
         <div class="proj-title">${p.title}</div>
@@ -337,21 +474,22 @@ function projRow(p) {
       <td class="proj-desc">${p.desc}</td>
       <td><a class="pdf-link" href="${p.pdf}" target="_blank">View PDF →</a></td>
     </tr>`;
-}
+    }
 
-document.getElementById('projects-featured').innerHTML = PROJECTS.featured.map(projRow).join('');
-document.getElementById('projects-labs').innerHTML     = PROJECTS.labs.map(projRow).join('');
+    document.getElementById('projects-featured').innerHTML = PROJECTS.featured.map(projRow).join('');
+    document.getElementById('projects-labs').innerHTML = PROJECTS.labs.map(projRow).join('');
 
-// ── FOOTER ──
-document.getElementById('footer-year').textContent = new Date().getFullYear();
-document.getElementById('footer-links').innerHTML = HERO.links
-  .filter(l => l.label === 'GitHub' || l.label === 'LinkedIn')
-  .map(l => `<a href="${l.href}" target="_blank">${l.label}</a>`)
-  .join(' &nbsp;&middot;&nbsp; ');
+    // ── FOOTER ──
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('footer-links').innerHTML = HERO.links
+      .filter(l => l.label === 'GitHub' || l.label === 'LinkedIn')
+      .map(l => `<a href="${l.href}" target="_blank">${l.label}</a>`)
+      .join(' &nbsp;&middot;&nbsp; ');
 
-// ── DOCUMENT TITLE ──
-document.title = HERO.name + ' \u2014 Security Portfolio';
-</script>
+    // ── DOCUMENT TITLE ──
+    document.title = HERO.name + ' \u2014 Security Portfolio';
+  </script>
 
 </body>
+
 </html>
