@@ -46,7 +46,7 @@ const CERTS = [
     ]
   },
   {
-    badge: 'Splunk · In Progress · Expected Mar 2026',
+    badge: 'Splunk · In Progress · Expected April 2026',
     title: 'Splunk Core Certified User',
     desc: 'Validates ability to search, use fields, create alerts, use lookups, and create basic statistical reports and dashboards in Splunk Enterprise and Splunk Cloud.',
     pending: true
