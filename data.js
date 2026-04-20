@@ -3,11 +3,11 @@
 
 const HERO = {
   name: 'Eric Guzman',
-  role: 'Security Engineer & Analyst',
+  role: 'Entry-level IT and Cybersecurity Professional ',
   location: 'Garden City, NY',
   university: 'Marist University',
   degree: "Cybersecurity B.S. '25",
-  bio: 'CompTIA Security+ certified cybersecurity graduate (Marist University, B.S. 2025) with hands-on experience building and operating a full SOC detection stack, Splunk, Wazuh, and Suricata on real hardware against live attack traffic. I have documented ransomware simulations, Active Directory attack chains, container escapes, and network-wide DNS filtering from the ground up. I am looking for a Tier 1 SOC analyst or security engineering role where I can bring that lab experience into production.',
+  bio: 'Cybersecurity graduate (Marist University, B.S. 2025, GPA 3.5) and CompTIA Security+ certified with hands-on experience across security operations, network infrastructure, systems administration, and IT support. I have built and operated a full SOC detection stack on physical hardware against live attack traffic, designed multi-site enterprise networks, provisioned production-grade Linux server environments running 24/7, and documented everything from ransomware simulations to malware analysis and network-wide DNS filtering. I am actively pursuing my first IT role and open to wherever I can contribute, whether that is a help desk, a SOC, a network team, or a sysadmin environment. I bring strong written communication, a methodical approach to troubleshooting, and a habit of building systems and writing the documentation to support them.',
   links: [
     { label: 'e.ricgzmn7@gmail.com', href: 'mailto:e.ricgzmn7@gmail.com' },
     { label: 'GitHub', href: 'https://github.com/ericguz1' },
