@@ -1010,7 +1010,7 @@
     <div class="fs-shell">
       <div class="fs-titlebar">
         <div style="display:flex;align-items:center;gap:0;font-size:11px;">
-          <span style="color:var(--green);font-weight:700;">ericguz@sec-lab</span><span style="color:var(--text3);">:</span><span style="color:var(--blue);">~/projects/<span id="fs-breadcrumb">featured</span></span><span style="color:var(--text3);">&nbsp;$&nbsp;</span><span style="color:var(--text2);">ls -la</span>
+          <span style="color:var(--green);font-weight:700;">ericguz@sec-lab</span><span style="color:var(--text3);">:</span><span style="color:var(--blue);">~/projects/<span id="fs-breadcrumb">featured</span></span><span style="color:var(--text3);">&nbsp;$&nbsp;</span><input id="fs-search" type="text" placeholder="ls -la" autocomplete="off" spellcheck="false" style="background:transparent;border:none;outline:none;color:var(--text2);font-family:var(--mono);font-size:11px;width:180px;caret-color:var(--green);" />
         </div>
         <span style="font-size:10px;color:var(--text3);" id="fs-item-count">8 items</span>
       </div>
@@ -1141,21 +1141,33 @@
     const TB_COLORS = { green: 'tb-green', cyan: 'tb-cyan', amber: 'tb-amber', purple: 'tb-purple', red: 'tb-red', blue: 'tb-blue' };
 
     let selectedRow = null;
+    let currentCat = 'featured';
 
-    function renderTable(cat) {
-      const rows = PROJECTS[cat];
+    function renderTable(cat, query) {
+      const q = (query || '').toLowerCase();
+      let rows = PROJECTS[cat];
+      if (q) rows = rows.filter(p => p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
       const tbody = document.getElementById('fs-tbody');
       tbody.innerHTML = '';
-      rows.forEach((p) => {
+      if (rows.length === 0) {
         const tr = document.createElement('tr');
-        tr.innerHTML = `
-      <td class="td-name">${p.title}</td>
-      <td class="td-grp" style="white-space:nowrap;color:var(--text2);">${p.grp}</td>
-      <td class="td-tech">${p.tech.map(([c, l]) => `<span class="tech-badge ${TB_COLORS[c] || 'tb-green'}">${l}</span>`).join('')}</td>
-    `;
-        tr.addEventListener('click', () => selectRow(tr, p));
+        tr.innerHTML = `<td colspan="3" style="color:var(--text3);padding:1.5rem 1rem;text-align:center;">no matches for &ldquo;${q}&rdquo;</td>`;
         tbody.appendChild(tr);
-      });
+      } else {
+        rows.forEach((p) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+        <td class="td-name">${p.title}</td>
+        <td class="td-grp" style="white-space:nowrap;color:var(--text2);">${p.grp}</td>
+        <td class="td-tech">${p.tech.map(([c, l]) => `<span class="tech-badge ${TB_COLORS[c] || 'tb-green'}">${l}</span>`).join('')}</td>
+      `;
+          tr.addEventListener('click', () => selectRow(tr, p));
+          tbody.appendChild(tr);
+        });
+      }
+      const count = rows.length + ' item' + (rows.length !== 1 ? 's' : '');
+      document.getElementById('fs-item-count').textContent = count;
+      document.getElementById('fs-status-left').textContent = count;
       hideDetail();
     }
 
@@ -1184,18 +1196,20 @@
     const CAT_LABELS = { featured: 'featured', offensive: 'offensive', homelab: 'homelab', infra: 'infrastructure', labs: 'all-labs' };
 
     function switchCat(el, cat) {
+      currentCat = cat;
       document.querySelectorAll('.tree-item').forEach(t => t.classList.remove('active'));
       el.classList.add('active');
       const label = CAT_LABELS[cat] || cat;
       document.getElementById('fs-breadcrumb').textContent = label;
-      const count = PROJECTS[cat].length + ' item' + (PROJECTS[cat].length !== 1 ? 's' : '');
-      document.getElementById('fs-item-count').textContent = count;
-      document.getElementById('fs-status-left').textContent = count;
+      document.getElementById('fs-search').value = '';
       renderTable(cat);
     }
 
     // Init
     renderTable('featured');
+    document.getElementById('fs-search').addEventListener('input', function () {
+      renderTable(currentCat, this.value.trim());
+    });
 
     // ── NAV ACTIVE HIGHLIGHT ──
     (function () {
