@@ -682,15 +682,14 @@
 
     /* Detail pane */
     .fs-detail {
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-      padding: 1.25rem 1.5rem;
-      min-height: 130px;
       display: none;
     }
 
-    .fs-detail.visible {
-      display: block;
+    tr.detail-row td {
+      padding: 1.25rem 1.5rem;
+      background: rgba(57, 224, 122, 0.03);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .fs-detail-title {
@@ -1184,24 +1183,26 @@
     }
 
     function selectRow(tr, p) {
-      document.querySelectorAll('.fs-table tbody tr').forEach(r => r.classList.remove('selected'));
+      // If clicking the already-selected row, toggle it off
+      if (selectedRow === tr) { hideDetail(); return; }
+      hideDetail();
       tr.classList.add('selected');
       selectedRow = tr;
-      showDetail(p);
-    }
-
-    function showDetail(p) {
-      const d = document.getElementById('fs-detail');
-      document.getElementById('detail-title').textContent = p.title;
-      document.getElementById('detail-meta').textContent = p.stack;
-      document.getElementById('detail-desc').textContent = p.desc;
-      const acts = document.getElementById('detail-actions');
-      acts.innerHTML = `<a href="${p.pdf}" target="_blank" class="fs-detail-btn primary">View Write-Up →</a><a class="fs-detail-btn secondary" onclick="hideDetail()">✕ Close</a>`;
-      d.classList.add('visible');
+      const detailTr = document.createElement('tr');
+      detailTr.className = 'detail-row';
+      const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" class="fs-detail-btn primary">View Write-Up →</a>` : '';
+      detailTr.innerHTML = `<td colspan="3">
+        <div class="fs-detail-title">${p.title}</div>
+        <div class="fs-detail-meta">${p.stack}</div>
+        <div class="fs-detail-desc">${p.desc}</div>
+        <div class="fs-detail-actions">${pdfBtn}<a class="fs-detail-btn secondary" onclick="hideDetail()">✕ Close</a></div>
+      </td>`;
+      tr.after(detailTr);
     }
 
     function hideDetail() {
-      document.getElementById('fs-detail').classList.remove('visible');
+      const existing = document.querySelector('tr.detail-row');
+      if (existing) existing.remove();
       if (selectedRow) { selectedRow.classList.remove('selected'); selectedRow = null; }
     }
 
