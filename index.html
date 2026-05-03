@@ -1032,14 +1032,17 @@
           <div class="tree-item active" data-cat="featured" onclick="switchCat(this,'featured')">
             <span class="tree-icon">▼</span> featured
           </div>
+          <div class="tree-item child" data-cat="soc" onclick="switchCat(this,'soc')">
+            <span class="tree-icon">▶</span> soc
+          </div>
           <div class="tree-item child" data-cat="offensive" onclick="switchCat(this,'offensive')">
             <span class="tree-icon">▶</span> offensive
           </div>
-          <div class="tree-item child" data-cat="homelab" onclick="switchCat(this,'homelab')">
-            <span class="tree-icon">▶</span> homelab
-          </div>
           <div class="tree-item child" data-cat="infra" onclick="switchCat(this,'infra')">
             <span class="tree-icon">▶</span> infrastructure
+          </div>
+          <div class="tree-item child" data-cat="network" onclick="switchCat(this,'network')">
+            <span class="tree-icon">▶</span> network
           </div>
           <div class="tree-item" data-cat="labs" onclick="switchCat(this,'labs')">
             <span class="tree-icon">▶</span> all-labs
@@ -1206,7 +1209,7 @@
       if (selectedRow) { selectedRow.classList.remove('selected'); selectedRow = null; }
     }
 
-    const CAT_LABELS = { featured: 'featured', offensive: 'offensive', homelab: 'homelab', infra: 'infrastructure', labs: 'all-labs' };
+    const CAT_LABELS = { featured: 'featured', soc: 'soc', offensive: 'offensive', infra: 'infrastructure', network: 'network', labs: 'all-labs' };
 
     function switchCat(el, cat) {
       currentCat = cat;
