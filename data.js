@@ -87,7 +87,7 @@ const SKILLS_FULL = [
 // ── PROJECTS ──
 // To add a project: add an entry to the relevant category array.
 // Sections: featured · soc · offensive · infra · network · labs
-// tech colors: green, cyan, amber, purple, red, blue
+// tech colors: green, cyan, amber, purple, red, blue.
 const PROJECTS = {
   featured: [
     { perms: 'lrwxrwxrwx', user: 'ericguz', grp: 'soc', tech: [['green', 'AlmaLinux'], ['cyan', 'Splunk'], ['amber', 'Python']], name: 'soc-homelab-siem', title: 'SOC Analyst Homelab: Suricata, Wazuh & Splunk', stack: 'AlmaLinux 10.1 · Suricata · Wazuh · Splunk Enterprise', desc: 'Detected real inbound attack traffic in a home-built SOC environment as measured by 13,618 events analyzed, Wazuh rule 5712 firing 39 times against confirmed SSH brute force bot traffic, and live signature matches from ET CINS and Spamhaus threat intelligence feeds by deploying Suricata (built from source), Wazuh, and Splunk Enterprise on a single AlmaLinux 10.1 host with SPAN port mirroring, HEC ingestion, and custom SPL queries for severity triage and timeline reconstruction.', pdf: 'assets/pdfs/SOCAnalystHomelabEG.pdf' },
