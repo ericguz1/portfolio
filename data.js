@@ -154,3 +154,58 @@ const PROJECTS = {
     { perms: 'lrwxrwxrwx', user: 'ericguz', grp: 'offensive', tech: [['amber', 'OSINT']], name: 'web-footprint', title: 'Website Footprinting Lab', stack: 'Passive + Active Enumeration', desc: 'Performed passive and active footprinting against a live corporate target as measured by confirmed firewall filtering evidence via timed-out traceroute hops, CDN nameserver enumeration, and full DNS infrastructure mapping for Walmart.com by using Sam Spade, nslookup, WHOIS, traceroute, and SOA record queries.', pdf: 'assets/pdfs/WebsiteFootprinting-Lab.pdf' },
   ]
 };
+
+// ── HOMELAB ──
+// Edit devices and links to match your actual network topology.
+// x/y are percentage positions on the canvas (0–100).
+// type: 'router' | 'switch' | 'ap' | 'server' | 'workstation'
+// services: { name, tool, status: 'active' | 'disabled' }
+const HOMELAB = {
+  devices: [
+    { id: 'router',  label: 'Main Router',         type: 'router',      sublabel: 'Gateway',              x: 50, y: 8,  services: [] },
+    { id: 'sw2',     label: 'Distribution Switch',  type: 'switch',      sublabel: 'Unmanaged',            x: 50, y: 30, services: [] },
+    { id: 'sw1',     label: 'Core Switch',          type: 'switch',      sublabel: 'Managed',              x: 28, y: 54, services: [] },
+    { id: 'sw3',     label: 'Access Switch',        type: 'switch',      sublabel: 'Unmanaged',            x: 72, y: 54, services: [] },
+    { id: 'ap',      label: 'Wireless AP',          type: 'ap',          sublabel: null,                   x: 10, y: 80, services: [] },
+    {
+      id: 'serverA', label: 'Server A',             type: 'server',      sublabel: 'Ubuntu Server',
+      internetFacing: true, x: 22, y: 80,
+      services: [
+        { name: 'DNS / Ad Blocking',    tool: 'Pi-hole',   status: 'active'   },
+        { name: 'Reverse Proxy',        tool: 'Nginx',     status: 'active'   },
+        { name: 'Containerization',     tool: 'Docker',    status: 'active'   },
+        { name: 'File Sharing',         tool: 'Samba',     status: 'active'   },
+        { name: 'VPN Mesh',             tool: 'Tailscale', status: 'active'   },
+        { name: 'Intrusion Prevention', tool: 'Fail2ban',  status: 'active'   },
+        { name: 'Host Firewall',        tool: 'UFW',       status: 'active'   },
+        { name: 'Ticketing System',     tool: 'osTicket',  status: 'disabled' },
+        { name: 'Database',             tool: 'MySQL',     status: 'active'   },
+        { name: 'PHP Runtime',          tool: 'PHP-FPM',   status: 'active'   },
+      ]
+    },
+    {
+      id: 'serverB', label: 'Server B',             type: 'server',      sublabel: 'AlmaLinux Server',
+      accent: true, x: 36, y: 80,
+      services: [
+        { name: 'SIEM',                 tool: 'Splunk',    status: 'active' },
+        { name: 'EDR / XDR',           tool: 'Wazuh',     status: 'active' },
+        { name: 'Network IDS',          tool: 'Suricata',  status: 'active' },
+        { name: 'Intrusion Prevention', tool: 'Fail2ban',  status: 'active' },
+        { name: 'Host Firewall',        tool: 'Firewalld', status: 'active' },
+        { name: 'Audit Logging',        tool: 'Auditd',    status: 'active' },
+      ]
+    },
+    { id: 'linuxws', label: 'Linux Workstation',    type: 'workstation', sublabel: null,                   x: 50, y: 80, services: [] },
+    { id: 'winws',   label: 'Windows Workstation',  type: 'workstation', sublabel: null,                   x: 72, y: 80, services: [] },
+  ],
+  links: [
+    { from: 'router',  to: 'sw2'     },
+    { from: 'sw2',     to: 'sw1'     },
+    { from: 'sw2',     to: 'sw3'     },
+    { from: 'sw1',     to: 'ap'      },
+    { from: 'sw1',     to: 'serverA' },
+    { from: 'sw1',     to: 'serverB' },
+    { from: 'sw1',     to: 'linuxws' },
+    { from: 'sw3',     to: 'winws'   },
+  ]
+};
