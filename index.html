@@ -635,6 +635,22 @@
       color: var(--bright);
     }
 
+    .badge-new {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      margin-right: 6px;
+      color: var(--red);
+      border: 1px solid #5c1a1a;
+      background: #2a0a0a;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
     .tech-badge {
       display: inline-block;
       font-size: 9.5px;
@@ -1646,7 +1662,7 @@
 
     function renderTable(cat, query) {
       const q = (query || '').toLowerCase();
-      let rows = PROJECTS[cat];
+      let rows = PROJECTS[cat].map(k => PROJECTS.all[k]).filter(Boolean);
       if (q) rows = rows.filter(p => p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
       const tbody = document.getElementById('fs-tbody');
       tbody.innerHTML = '';
@@ -1658,7 +1674,7 @@
         rows.forEach((p) => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
-        <td class="td-name">${p.title}</td>
+        <td class="td-name">${p.listed && (Date.now() - new Date(p.listed)) < 30*24*60*60*1000 ? '<span class="badge-new">NEW</span>' : ''}${p.title}</td>
         <td class="td-grp" style="white-space:nowrap;color:var(--text2);">${p.grp}</td>
         <td class="td-tech">${p.tech.map(([c, l]) => `<span class="tech-badge ${TB_COLORS[c] || 'tb-green'}">${l}</span>`).join('')}</td>
       `;

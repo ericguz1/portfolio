@@ -476,8 +476,9 @@
     </tr>`;
     }
 
-    document.getElementById('projects-featured').innerHTML = PROJECTS.featured.map(projRow).join('');
-    document.getElementById('projects-labs').innerHTML = PROJECTS.labs.map(projRow).join('');
+    const resolve = keys => keys.map(k => PROJECTS.all[k]).filter(Boolean);
+    document.getElementById('projects-featured').innerHTML = resolve(PROJECTS.featured).map(projRow).join('');
+    document.getElementById('projects-labs').innerHTML = resolve(PROJECTS.labs).map(projRow).join('');
 
     // ── FOOTER ──
     document.getElementById('footer-year').textContent = new Date().getFullYear();
