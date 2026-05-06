@@ -1387,7 +1387,7 @@
       }
 
       .hl-canvas-wrap {
-        height: 300px;
+        height: 400px;
         flex: none;
       }
 
@@ -1407,6 +1407,33 @@
       .hl-detail-inner {
         width: 100%;
         box-sizing: border-box;
+      }
+
+      /* Homelab — smaller icons and wrapping labels so nodes don't collide */
+      .hl-icon-box {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hl-icon-box svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .hl-node {
+        gap: 3px;
+      }
+
+      .hl-node-label {
+        white-space: normal;
+        text-align: center;
+        max-width: 52px;
+        line-height: 1.2;
+        font-size: 9px;
+      }
+
+      .hl-node-ip {
+        font-size: 8px;
       }
     }
   </style>
