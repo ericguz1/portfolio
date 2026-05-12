@@ -1714,7 +1714,7 @@
     const TB_COLORS = { green: 'tb-green', cyan: 'tb-cyan', amber: 'tb-amber', purple: 'tb-purple', red: 'tb-red', blue: 'tb-blue' };
 
     let selectedRow = null;
-    let currentCat = 'featured';
+    let currentCat = window.innerWidth <= 600 ? 'labs' : 'featured';
 
     function renderTable(cat, query) {
       const q = (query || '').toLowerCase();
@@ -1781,7 +1781,7 @@
     }
 
     // Init
-    renderTable('featured');
+    renderTable(currentCat);
     document.getElementById('fs-search').addEventListener('input', function () {
       renderTable(currentCat, this.value.trim());
     });
