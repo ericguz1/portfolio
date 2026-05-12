@@ -1436,10 +1436,9 @@
         font-size: 8px;
       }
 
-      /* Fix 2: initial scale so percentage-positioned nodes spread out on narrow screens */
+      /* Fix 2: zoom shrinks layout so JS re-reads correct node positions for SVG lines */
       .hl-zoom-layer {
-        transform-origin: center top;
-        transform: scale(0.75);
+        zoom: 0.75;
       }
 
       /* Fix 3: move zoom controls to bottom-right so they don't cover nodes */
