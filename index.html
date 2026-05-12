@@ -1387,7 +1387,7 @@
       }
 
       .hl-canvas-wrap {
-        height: 400px;
+        height: 480px;
         flex: none;
       }
 
@@ -1434,6 +1434,35 @@
 
       .hl-node-ip {
         font-size: 8px;
+      }
+
+      /* Fix 2: initial scale so percentage-positioned nodes spread out on narrow screens */
+      .hl-zoom-layer {
+        transform-origin: center top;
+        transform: scale(0.75);
+      }
+
+      /* Fix 3: move zoom controls to bottom-right so they don't cover nodes */
+      .hl-zoom-controls {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      /* Fix 4: lift hint above detail panel when it opens */
+      .hl-hint {
+        bottom: 40px;
+      }
+
+      /* Fix 5: easier tap target for small nodes */
+      .hl-node {
+        min-width: 52px;
+      }
+
+      /* Fix 6: full-width close button for easy tapping */
+      .hl-close-btn {
+        display: block;
+        width: calc(100% - 36px);
       }
     }
   </style>
