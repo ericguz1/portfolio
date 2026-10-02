@@ -46,7 +46,7 @@ const CERTS = [
     ]
   },
   {
-    badge: 'Cisco · In Progress · Expected May 2026',
+    badge: 'Cisco · In Progress · Expected November 2026',
     title: 'Cisco Certified Network Associate (CCNA)',
     desc: 'Industry-standard networking certification covering IP connectivity, security fundamentals, automation, and programmability across enterprise network environments.',
     pending: true
